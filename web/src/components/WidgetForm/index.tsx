@@ -32,21 +32,20 @@ export const feedbackTypes = {
 export type FeedbackType = keyof typeof feedbackTypes;
 
 export function WidgetForm() {
-  const [feedbackType, setFeedbackType] = useState<FeedbackType | null>(null)
+  const [feedbackType, setFeedbackType] = useState<FeedbackType | null>(null);
 
-  function handleRestartFeedback(){
+  function handleRestartFeedback() {
     setFeedbackType(null);
   }
 
   return (
     <div className="bg-zinc-900 p-4 relative rounded-2xl mb-2 flex flex-col items-center shadow-lg w-[calc(100vw-2rem)] md:w-auto">
-      
       {!feedbackType ? (
-        <FeedbackTypeStep onFeedbackTypeChanged={setFeedbackType}/>
+        <FeedbackTypeStep onFeedbackTypeChanged={setFeedbackType} />
       ) : (
-        <FeedbackConentStep 
-        feedbackType={feedbackType}
-        onFeedbackRestart={handleRestartFeedback}
+        <FeedbackConentStep
+          feedbackType={feedbackType}
+          onFeedbackRestart={handleRestartFeedback}
         />
       )}
 
